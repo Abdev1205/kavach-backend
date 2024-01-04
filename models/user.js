@@ -10,9 +10,16 @@ const schema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  password : {
-    type : String,
-    required : true
+  password: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true
+  },
+  googleId: {
+    type: String
   },
   createdAt: {
     type: Date,
@@ -20,4 +27,5 @@ const schema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model("Users", schema);
+const User = mongoose.model("Users", schema);
+export default User;
