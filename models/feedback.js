@@ -1,4 +1,5 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+
 const schema = mongoose.Schema({
   accusedName: {
     type: String,
@@ -28,22 +29,22 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  accusedStages: {
+  accusedFeedback: {
     type: String,
     required: true,
   },
   hero: {
-    type: String
+    type: String,
   },
-  feedbackId: {
+  firId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Feedbacks',
+    ref: 'Firs',
   },
-  heroId: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Users',
   },
-}, { timestamps: true })
+}, { timestamps: true });
 
-const Fir = mongoose.model('Firs', schema);
-export default Fir;
+const Feedback = mongoose.model('Feedbacks', schema);
+export default Feedback;

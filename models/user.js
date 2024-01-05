@@ -21,11 +21,15 @@ const schema = new mongoose.Schema({
   googleId: {
     type: String
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
+  feedbackId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Feedbacks',
   },
-});
+  firId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Firs',
+  },
+}, { timestamps: true });
 
 const User = mongoose.model("Users", schema);
 export default User;

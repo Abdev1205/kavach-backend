@@ -8,14 +8,6 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  accusedAge: {
-    type: Number,
-    required: true,
-  },
-  suspectAge: {
-    type: Number,
-    required: true,
-  },
   accusedCity: {
     type: String,
     required: true,
@@ -28,22 +20,18 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  accusedStages: {
-    type: String,
-    required: true,
-  },
-  hero: {
-    type: String
-  },
-  feedbackId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Feedbacks',
+  reportAccepted: {
+    type: Boolean,
   },
   heroId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Users',
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
+  },
 }, { timestamps: true })
 
-const Fir = mongoose.model('Firs', schema);
-export default Fir;
+const Report = mongoose.model('Reports', schema);
+export default Report;
