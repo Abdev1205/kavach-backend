@@ -22,13 +22,11 @@ passport.use(
         console.log("user data", user)
 
         if (!user) {
-          // If the user doesn't exist, check if the email is already registered
           const existingUserWithEmail = await User.findOne({ email: profile.emails[0].value });
 
           console.log("data", existingUserWithEmail);
           if (existingUserWithEmail && existingUserWithEmail.email === profile.emails[0].value) {
             console.log(" i am done", existingUserWithEmail.email == profile.emails[0].value)
-            // If the email is registered, return an error (you can handle this case accordingly)
             return done(null, { existingUserWithEmail });
           }
           else {
@@ -57,13 +55,5 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
   done(null, user);
 });
-
-function generateAccessToken(user) {
-  // Implement your JWT token generation logic here
-}
-
-function generateRefreshToken(user) {
-  // Implement your refresh token generation logic here
-}
 
 export default passport;
