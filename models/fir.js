@@ -28,7 +28,7 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  accusedStages: {
+  Stages: {
     type: String,
     required: true,
   },
