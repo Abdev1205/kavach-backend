@@ -7,6 +7,8 @@ import { refreshToken } from "../controller/AuthController/refreshToken.js";
 import { logout } from "../controller/AuthController/logout.js";
 import passport from '../utils/passportConfig.js';
 import { googleAuth } from "../controller/AuthController/googleAuth.js";
+import { getFIR, casesSolvedCounter} from "../controller/FirController/firMain.js";
+import {getFeedback} from "../controller/FeedbackController/feedbackMain.js"
 
 const router = express.Router();
 
@@ -19,5 +21,12 @@ router.get('/auth/google/callback', googleAuth);
 router.get('/user', verifyToken, getUserData)
 router.get('/refresh', refreshToken, verifyToken, getUserData)
 router.get('/logout', logout);
+
+// FIR
+router.get('/getfir', getFIR);
+router.get('/getSolvedCaseCount', casesSolvedCounter);
+
+// FEEDBACK
+router.get('/getFeedback', getFeedback);
 
 export default router;
