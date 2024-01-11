@@ -28,7 +28,11 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
+<<<<<<< HEAD
   stages: {
+=======
+  stages: {
+>>>>>>> 3819abef10b8d706271e6b909dbd54efefff0eab
     type: String,
     required: true,
   },
