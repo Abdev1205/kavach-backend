@@ -1,4 +1,4 @@
-import {User} from "../../models/user.js"
+import User from "../../models/user.js"
 import {Posts} from "../../models/Posts.js"
 export const createPost = async (req, res) => {
     try {
