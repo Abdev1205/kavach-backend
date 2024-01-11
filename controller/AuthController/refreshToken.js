@@ -5,6 +5,7 @@ config({
 });
 
 const refreshToken = async (req, res, next) => {
+  // we will implemet this after all funcationlity is build no just increase cookit time
   const cookies = req.headers.cookie;
   console.log(cookies)
   const prevToken = cookies.split("=")[1];

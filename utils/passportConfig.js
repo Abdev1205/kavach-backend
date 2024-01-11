@@ -27,7 +27,8 @@ passport.use(
           console.log("data", existingUserWithEmail);
           if (existingUserWithEmail && existingUserWithEmail.email === profile.emails[0].value) {
             console.log(" i am done", existingUserWithEmail.email == profile.emails[0].value)
-            return done(null, { existingUserWithEmail });
+            user = existingUserWithEmail;
+            return done(null, { user });
           }
           else {
             console.log('i am in user create')
