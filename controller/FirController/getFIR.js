@@ -1,22 +1,21 @@
 import Fir from '../../models/fir.js'
 
 export const getFIR = async (req, res) => {
-    try{
+    try {
         const totalFirs = await Fir.find({});
-
-        if(!totalFirs){
+        if (!totalFirs) {
             res.status(404).json({
                 success: false,
-                message : "No firs found"
+                message: "No firs found"
             })
-        }else{   
+        } else {
             res.status(200).json({
                 success: true,
                 totalFirs
             })
         }
-        
-    } catch(error){
+
+    } catch (error) {
         console.log(error);
     }
 }
