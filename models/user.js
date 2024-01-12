@@ -12,11 +12,12 @@ const schema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+  },
+  city: {
+    type: String,
   },
   role: {
     type: String,
-    required: true
   },
   googleId: {
     type: String
