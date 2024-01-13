@@ -2,7 +2,6 @@ import express from "express";
 import { LoginInitiate } from "../controller/AuthController/loginInitiate.js";
 import { roleIntiate } from "../controller/AuthController/roleInitiate.js";
 import getUserDataUsingEmail from "../controller/UserController/getUserDataUsingEmail.js";
-import {isAuthenticated} from "../middlewares/isAuthenticated.js"
 import { register } from "../controller/AuthController/register.js"
 import { login } from "../controller/AuthController/login.js"
 import { verifyToken } from "../middlewares/verifyToken.js"
@@ -17,6 +16,12 @@ import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir} from "../c
 import {getFeedback} from "../controller/FeedbackController/AllFeedbackMain.js"
 
 import { createPost, fetchFeed, likeUpdate } from "../controller/SocialController/AllFeedMain.js";
+
+// Comment import
+import {addComment, postComments, deleteComment} from "../controller/SocialController/comments/comment.js";
+import { newsfeed } from "../controller/SocialController/Police/fetchNews.js";
+import { createNewsChip } from "../controller/SocialController/Police/news.js"
+
 const router = express.Router();
 router.get('/', (req, res) => res.send('Welcome to Kavach Backend Api Layer'))
 router.post('/register', register);
@@ -70,6 +75,14 @@ router.post("/newPost", verifyToken, createPost);
 // get feed
 router.get("/fetchFeed", verifyToken, fetchFeed);
 // like unlike
-router.post("/liked", verifyToken, likeUpdate);
+router.post("/updateLike", verifyToken, likeUpdate);
 
+// Comment
+router.post('/addComment',verifyToken,addComment)
+router.delete('/deleteComment', verifyToken,deleteComment)
+router.get('/postComments', verifyToken, postComments)
+
+// SOCIAL POLICE COMMANDS
+router.get('/fetchNewsChips', newsfeed)
+router.post('/createNewsChips', verifyToken, createNewsChip)
 export default router;
