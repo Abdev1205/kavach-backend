@@ -3,7 +3,6 @@ import User from "../../models/user.js";
 const getUserData = async (req, res, next) => {
   console.log("i am in user")
   const userId = req.id;
-  console.log(req)
   console.log(userId, "user id in gert user data")
   try {
     let user = await User.findById(userId, "-password");
