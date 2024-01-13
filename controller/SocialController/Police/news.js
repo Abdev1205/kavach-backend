@@ -1,18 +1,17 @@
-import User from "../../models/user.js"
-import {Posts} from "../../models/Posts.js"
-export const createPost = async (req, res) => {
+import User from "../../../models/user.js"
+import News from "../../../models/NewsChips.js"
+export const createNewsChip = async (req, res) => {
     try {
         const userId = req.id;
-        const {content, img} = req.body;
+        const {content} = req.body;
 
         const user = await User.findById(userId);
-        const myPost = await Posts.create({
-            user: userId,
+        const news = await News.create({
+            userId,
             name: user.name,
-            content,
-            img
+            News: content
         })
-        await myPost.save();
+        await news.save();
         
         res.json({
             success: true,

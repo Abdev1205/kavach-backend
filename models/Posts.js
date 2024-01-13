@@ -6,8 +6,8 @@ const postSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  name : {
-    type: String
+  name: {
+    type: String,
   },
   content: {
     type: String,
@@ -15,32 +15,14 @@ const postSchema = new mongoose.Schema({
   },
   img: {
     type: String,
-    required : true,
+    required: true,
   },
   timestamp: {
     type: Date,
     default: Date.now,
   },
-  comments: [
-    {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User", // Reference to the User model
-      },
-      content: {
-        type: String,
-        required: true,
-      },
-      timestamp: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-  ],
-  likes: {
-    type: Number,
-    default: 0
-  },
+  commentCount: { type: Number, default: 0 },
+  likeCount: { type: Number, default: 0 }
 });
 
 export const Posts = mongoose.model("Posts", postSchema);
