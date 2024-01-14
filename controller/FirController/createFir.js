@@ -22,10 +22,9 @@ export const createFir = async (req, res) => {
       accusedCity,
       suspectCity,
       accusedReport,
-      Stages,
+      stages: Stages,
       hero
     });
-    
     res.status(201).json({
       success: true,
       message: "FIR Added Succesfully",

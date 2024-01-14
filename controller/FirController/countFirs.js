@@ -1,10 +1,11 @@
 import Fir from '../../models/fir.js'
 
-export const getFIR = async (req, res) => {
+export const countFirs = async (req, res) => {
     try{
-        const totalFirs = await Fir.find({}).sort({timestamp: -1});
+        const totalNo = await Fir.countDocuments({});
         
-        if(!totalFirs){
+
+        if(!totalNo){
             res.status(404).json({
                 success: false,
                 message : "No firs found"
@@ -12,7 +13,7 @@ export const getFIR = async (req, res) => {
         }else{
             res.status(200).json({
                 success: true,
-                totalFirs
+                totalNo
             })
         }
         

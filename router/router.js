@@ -12,8 +12,8 @@ import passport from '../utils/passportConfig.js';
 import { googleAuth } from "../controller/AuthController/googleAuth.js";
 
 // import { getMyProfile, login, logout, register } from "../controller/UserController/user.js";
-import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir} from "../controller/FirController/AllfirMain.js";
-import {getFeedback} from "../controller/FeedbackController/AllFeedbackMain.js"
+import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir, countFirs, getCrimeRateCount} from "../controller/FirController/AllfirMain.js";
+import {getFeedback, getFeedbackCount, createFeedback} from "../controller/FeedbackController/AllFeedbackMain.js"
 
 import { createPost, fetchFeed, likeUpdate } from "../controller/SocialController/AllFeedMain.js";
 
@@ -61,13 +61,13 @@ router.get("/logout", logout);
 
 // FIR
 router.get('/getfir', getFIR);
-router.get('/getSolvedCaseCount', casesSolvedCounter);
 router.post('/createFir', verifyToken, createFir);   // Auth Needed here too
 router.delete('/:id',verifyToken, deleteFir);   // Authentication needed
 router.put('/:id', verifyToken, updateFir);      // Authentication needed
 
 // FEEDBACK
 router.get('/getFeedback', getFeedback);
+router.post('/createFeedback', createFeedback);
 
 // SOCIAL
 //add post
@@ -85,4 +85,10 @@ router.get('/postComments', verifyToken, postComments)
 // SOCIAL POLICE COMMANDS
 router.get('/fetchNewsChips', newsfeed)
 router.post('/createNewsChips', verifyToken, createNewsChip)
+
+// Chip routes 
+router.get('/totalFirCount', countFirs);
+router.get('/getSolvedCaseCount', casesSolvedCounter);
+router.get('/getFeedbackCount', getFeedbackCount);
+router.get('/getCrimeRateCount', getCrimeRateCount);
 export default router;
