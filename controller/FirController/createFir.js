@@ -10,8 +10,9 @@ export const createFir = async (req, res) => {
       accusedCity,
       suspectCity,
       accusedReport,
-      Stages,
+      stages,
       hero,
+      phoneno
     } = req.body;
 
     await Fir.create({
@@ -22,8 +23,9 @@ export const createFir = async (req, res) => {
       accusedCity,
       suspectCity,
       accusedReport,
-      stages: Stages,
-      hero
+      stages,
+      hero,
+      phoneno
     });
     res.status(201).json({
       success: true,
