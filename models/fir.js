@@ -4,6 +4,9 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
+  phoneno:{
+    type: String,
+  },
   suspectName: {
     type: String,
     required: true,
