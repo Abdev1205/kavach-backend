@@ -12,11 +12,10 @@ import { logout } from "../controller/AuthController/logout.js";
 import passport from '../utils/passportConfig.js';
 import { googleAuth } from "../controller/AuthController/googleAuth.js";
 import { isAuthenticated } from "../middlewares/isAuthenticated.js"
-import { casesSolvedCounter } from "../controller/FirController/AllfirMain.js";
-import { getFeedback } from "../controller/FeedbackController/AllFeedbackMain.js"
+
 
 import { getMyProfile } from "../controller/UserController/user.js";
-import { createFir, deleteFir, updateFir, getFIR } from "../controller/FirController/AllfirMain.js";
+
 // import { getFeedback } from "../controller/FeedbackController/AllFeedbackMain.js"
 
 
