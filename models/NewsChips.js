@@ -5,7 +5,8 @@ const NewsSchema = new mongoose.Schema(
   {
     userId: { type: ObjectId, required: true, ref: "User" },
     name: {type: String},
-    News: {type: String}
+    News: {type: String},
+    profileImage: {type: String}
   },
   { timestamps: true }
 );

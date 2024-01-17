@@ -5,6 +5,10 @@ import { deleteFir } from "./deleteFir.js";
 import { updateFir } from "./updateFir.js";
 import { countFirs } from "./countFirs.js";
 import {getCrimeRateCount} from "./crimeRate.js";
+import {getSingleFir} from "./getSingleFir.js";
+import {updateInvStage} from "./updateInv.js";
+import {getFIROld} from "./getFIR.js";
+import {setStatus} from "./setStatus.js";
 export {
   getFIR,
   createFir,
@@ -12,5 +16,9 @@ export {
   deleteFir,
   updateFir,
   countFirs,
-  getCrimeRateCount
+  getCrimeRateCount,
+  getSingleFir,
+  updateInvStage,
+  getFIROld,
+  setStatus
 };

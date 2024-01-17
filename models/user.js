@@ -5,6 +5,10 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  profileImage: {
+    type: String,
+    default: "https://t3.ftcdn.net/jpg/03/64/62/36/360_F_364623623_ERzQYfO4HHHyawYkJ16tREsizLyvcaeg.jpg"
+  },
   email: {
     type: String,
     unique: true,
@@ -25,6 +29,9 @@ const schema = new mongoose.Schema({
   feedbackId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Feedbacks',
+  },
+  available: {
+    type: Boolean
   },
   firId: {
     type: mongoose.Schema.Types.ObjectId,

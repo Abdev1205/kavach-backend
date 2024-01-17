@@ -9,7 +9,8 @@ export const createNewsChip = async (req, res) => {
         const news = await News.create({
             userId,
             name: user.name,
-            News: content
+            News: content,
+            profileImage: user.profileImage,
         })
         await news.save();
         
