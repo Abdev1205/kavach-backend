@@ -7,8 +7,9 @@ export const renderMap =  async (req, res) => {
   console.log("called")
   try{
     const {userLat, userLng} = req.body;
-    const distance = calcDistance(startCoords, userLng, userLat);
-    res.json({ distance });
+    const distance = await calcDistance(startCoords, userLng, userLat);
+    const policeLoc = {lng: 77.2269348, lat: 28.612912};
+    res.json({ distance, policeLoc });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
