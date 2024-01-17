@@ -17,7 +17,7 @@ import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir, countFirs,
 import {getFeedback, getFeedbackCount, createFeedback, getFeedbackOld} from "../controller/FeedbackController/AllFeedbackMain.js"
 import {getMessageToSend} from "../controller/SMSController/twillioSend.js"
 import { createPost, fetchFeed, likeUpdate, getSinglePost } from "../controller/SocialController/AllFeedMain.js";
-
+import {renderMap} from "../controller/LocationController/callforhelpController.js"
 // Comment import
 import {addComment, postComments, deleteComment} from "../controller/SocialController/comments/comment.js";
 import { newsfeed } from "../controller/SocialController/Police/fetchNews.js";
@@ -90,4 +90,7 @@ router.get('/getCrimeRateCount', getCrimeRateCount);
 
 // BULK SMS ROUTE
 router.post('/getMessageToSend', getMessageToSend);
+
+// Location
+router.post('/calcDis', renderMap);
 export default router;  
