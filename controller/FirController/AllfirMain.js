@@ -4,11 +4,13 @@ import { casesSolvedCounter } from "./casesSolved.js";
 import { deleteFir } from "./deleteFir.js";
 import { updateFir } from "./updateFir.js";
 import { countFirs } from "./countFirs.js";
-import {getCrimeRateCount} from "./crimeRate.js";
-import {getSingleFir} from "./getSingleFir.js";
-import {updateInvStage} from "./updateInv.js";
-import {getFIROld} from "./getFIR.js";
-import {setStatus} from "./setStatus.js";
+import { getCrimeRateCount } from "./crimeRate.js";
+import { getSingleFir } from "./getSingleFir.js";
+import { updateInvStage } from "./updateInv.js";
+import { getFIROld } from "./getFIR.js";
+import { setStatus } from "./setStatus.js";
+import { getUserFIR } from "./getUserFir.js";
+import { getUserFIROld } from "./getUserFir.js";
 export {
   getFIR,
   createFir,
@@ -20,5 +22,7 @@ export {
   getSingleFir,
   updateInvStage,
   getFIROld,
-  setStatus
+  setStatus,
+  getUserFIR,
+  getUserFIROld
 };

@@ -15,7 +15,7 @@ import { googleAuth } from "../controller/AuthController/googleAuth.js";
 import { createComplaint } from "../controller/ComplaintController/createComplaint.js";
 import { getComplaint } from "../controller/ComplaintController/getComplaint.js"
 // import { getMyProfile, login, logout, register } from "../controller/UserController/user.js";
-import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir, countFirs, getCrimeRateCount, getSingleFir, updateInvStage, getFIROld, setStatus } from "../controller/FirController/AllfirMain.js";
+import { getFIR, casesSolvedCounter, createFir, deleteFir, updateFir, getUserFIR, countFirs, getUserFIROld, getCrimeRateCount, getSingleFir, updateInvStage, getFIROld, setStatus } from "../controller/FirController/AllfirMain.js";
 import { getFeedback, getFeedbackCount, createFeedback, getFeedbackOld } from "../controller/FeedbackController/AllFeedbackMain.js"
 import { getMessageToSend } from "../controller/SMSController/twillioSend.js"
 import { createPost, fetchFeed, likeUpdate, getSinglePost } from "../controller/SocialController/AllFeedMain.js";
@@ -48,7 +48,7 @@ router.get('/logout', logout);
 
 
 
-router.get("/me", isAuthenticated, getMyProfile);
+// router.get("/me", isAuthenticated, getMyProfile);
 
 
 router.post("/register", register);
@@ -63,6 +63,9 @@ router.get('/getfir', getFIR);
 // router.post('/createFir', verifyToken, createFir);   // Auth Needed here too
 // router.delete('/:id', verifyToken, deleteFir);   // Authentication needed
 // router.put('/:id', verifyToken, updateFir);      // Authentication needed
+
+router.get('/getUserFIR', verifyToken, getUserFIR);
+router.get('/getUserFIROld', verifyToken, getUserFIROld);
 // =======
 router.get('/getFIROld', getFIROld);
 router.post('/setStatus', setStatus);

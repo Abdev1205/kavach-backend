@@ -14,6 +14,7 @@ export const createFir = async (req, res) => {
       hero,
       phoneno
     } = req.body;
+    const userId = req.id;
 
     await Fir.create({
       accusedName,
@@ -25,7 +26,8 @@ export const createFir = async (req, res) => {
       accusedReport,
       stages,
       hero,
-      phoneno
+      phoneno,
+      userId
     });
     res.status(201).json({
       success: true,

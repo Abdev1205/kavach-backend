@@ -4,7 +4,7 @@ const schema = mongoose.Schema({
     type: String,
     required: true,
   },
-  phoneno:{
+  phoneno: {
     type: String,
   },
   suspectName: {
@@ -44,6 +44,10 @@ const schema = mongoose.Schema({
     ref: 'Feedbacks',
   },
   heroId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
+  },
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Users',
   },
