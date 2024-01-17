@@ -2,9 +2,9 @@ import Fir from '../../models/fir.js'
 
 export const getUserFIR = async (req, res) => {
 
-  try {
+  try { 
     const userId = req.id;
-    const totalFirs = await Fir.findById(userId).sort({ createdAt: -1 });
+    const totalFirs = await Fir.find({userId}).sort({createdAt: -1});
 
     console.log(userId);
 

@@ -9,9 +9,6 @@ const schema = mongoose.Schema({
     type: Number,
     required: true
   },
-  userReport: {
-    type: String,
-  },
   userFeedback: {
     type: String,
     required: true,

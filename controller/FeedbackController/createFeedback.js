@@ -1,11 +1,12 @@
 import Feedback from "../../models/Feedback.js";
 
 export const createFeedback = async (req, res) => {
+  var userId=req.id;
+
   try {
     const {
       userName,
       userAge,
-      userReport,
       userFeedback,
       hero,
       rating
@@ -14,10 +15,10 @@ export const createFeedback = async (req, res) => {
     await Feedback.create({
         userName,
         userAge,
-        userReport,
         userFeedback,
         hero,
-        rating
+        rating,
+        userId
     });
     
     res.status(201).json({
