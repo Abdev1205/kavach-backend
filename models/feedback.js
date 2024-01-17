@@ -1,40 +1,26 @@
 import mongoose from 'mongoose';
 
 const schema = mongoose.Schema({
-  accusedName: {
+  userName: {
     type: String,
     required: true,
   },
-  suspectName: {
-    type: String,
-    required: true,
-  },
-  accusedAge: {
+  userAge: {
     type: Number,
-    required: true,
+    required: true
   },
-  suspectAge: {
-    type: Number,
-    required: true,
-  },
-  accusedCity: {
+  userReport: {
     type: String,
-    required: true,
   },
-  suspectCity: {
-    type: String,
-    required: true,
-  },
-  accusedReport: {
-    type: String,
-    required: true,
-  },
-  accusedFeedback: {
+  userFeedback: {
     type: String,
     required: true,
   },
   hero: {
     type: String,
+  },
+  rating: {
+    type: Number,
   },
   firId: {
     type: mongoose.Schema.Types.ObjectId,
