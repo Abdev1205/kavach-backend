@@ -24,7 +24,7 @@ import { renderMap } from "../controller/LocationController/callforhelpControlle
 import { addComment, postComments, deleteComment } from "../controller/SocialController/comments/comment.js";
 import { newsfeed } from "../controller/SocialController/Police/fetchNews.js";
 import { createNewsChip } from "../controller/SocialController/Police/news.js"
-
+import { generateResponse } from "../controller/openAIController/openAIController.js";
 
 const router = express.Router();
 router.get('/', (req, res) => res.send('Welcome to Kavach Backend Api Layer'))
@@ -114,4 +114,8 @@ router.post('/getMessageToSend', getMessageToSend);
 
 // Location
 router.post('/calcDis', renderMap);
+
+// GPT OpenAI
+router.post('/fetchResponseGPT', verifyToken, generateResponse);
+
 export default router;  

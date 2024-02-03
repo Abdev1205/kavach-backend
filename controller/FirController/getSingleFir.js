@@ -2,6 +2,7 @@ import Fir from '../../models/fir.js'
 
 export const getSingleFir = async (req, res) => {
     try{
+        console.log(req.id , "params value in get single user ")
         const userFir = await Fir.findById(req.params.id);
         
         if(!userFir){
