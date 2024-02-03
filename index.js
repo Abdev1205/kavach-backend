@@ -12,7 +12,7 @@ app.use(bodyParser.json({limit: '35mb'}));
 // adding middleware
 app.use(
   cors({
-    origin: ["https://kavach-frontend-main-cdiq3xzzu-paper-bag-devs-projects.vercel.app/"],
+    origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
