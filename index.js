@@ -7,12 +7,12 @@ import connectDb from "./Db/connect.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
-app.use(bodyParser.json({limit: '35mb'}));
+app.use(bodyParser.json({ limit: '35mb' }));
 
 // adding middleware
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

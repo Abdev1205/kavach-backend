@@ -2,6 +2,7 @@ import Fir from "../../models/fir.js";
 
 export const createFir = async (req, res) => {
   try {
+    console.log(" I am create Fir")
     const {
       accusedName,
       suspectName,

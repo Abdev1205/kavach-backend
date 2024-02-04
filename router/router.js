@@ -59,10 +59,7 @@ router.get("/logout", logout);
 
 // FIR
 router.get('/getfir', getFIR);
-// <<<<<<< HEAD
-// router.post('/createFir', verifyToken, createFir);   // Auth Needed here too
-// router.delete('/:id', verifyToken, deleteFir);   // Authentication needed
-// router.put('/:id', verifyToken, updateFir);      // Authentication needed
+
 
 router.get('/getUserFIR', verifyToken, getUserFIR);
 router.get('/getUserFIROld', verifyToken, getUserFIROld);
