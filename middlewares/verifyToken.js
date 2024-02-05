@@ -26,12 +26,14 @@ const verifyToken = async (req, res, next) => {
 
     console.log("user id from jwt decode", decoded.id);
     req.id = decoded.id;
+
+    // Set the accessToken cookie as httpOnly
+    res.cookie("accessToken", token, { httpOnly: true });
+
     next();
   });
 };
 
-
 export {
   verifyToken
 };
-
