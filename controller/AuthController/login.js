@@ -29,6 +29,7 @@ const login = async (req, res, next) => {
     console.log("this is token payload ", tokenPayload)
     const token = await jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
       expiresIn: '1h',
+      httpOnly: true,
       sameSite: "none",
       secure: true
     });
