@@ -1,14 +1,16 @@
 import User from "../models/user.js";
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import { config } from "dotenv";
 config({
-  path: ".env"
+  path: ".env",
 });
 
 const verifyToken = async (req, res, next) => {
   const cookies = req.headers.cookie;
   console.log("this is cookies value", cookies);
-  const tokenCookie = cookies?.split(";").find(cookie => cookie.trim().startsWith("accessToken="));
+  const tokenCookie = cookies
+    ?.split(";")
+    .find((cookie) => cookie.trim().startsWith("accessToken="));
   if (!tokenCookie) {
     return res.status(404).json({ message: "No accessToken cookie found" });
   }
@@ -16,7 +18,9 @@ const verifyToken = async (req, res, next) => {
   console.log("this is token value", token);
 
   if (!token) {
-    return res.status(404).json({ message: "No token found in the accessToken cookie" });
+    return res
+      .status(404)
+      .json({ message: "No token found in the accessToken cookie" });
   }
 
   jwt.verify(String(token), process.env.JWT_SECRET_KEY, (err, decoded) => {
@@ -28,12 +32,16 @@ const verifyToken = async (req, res, next) => {
     req.id = decoded.id;
 
     // Set the accessToken cookie as httpOnly
-    res.cookie("accessToken", token, { httpOnly: true });
+    res.cookie("accessToken", token, 
+    { 
+      httpOnly: true,
+      maxAge: 15 * 60 * 1000,
+      sameSite: "none",
+      secure: true 
+    });
 
     next();
   });
 };
 
-export {
-  verifyToken
-};
+export { verifyToken };
