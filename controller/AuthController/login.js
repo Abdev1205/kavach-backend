@@ -28,13 +28,15 @@ const login = async (req, res, next) => {
     };
     console.log("this is token payload ", tokenPayload)
     const token = await jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
-      expiresIn: '1h'
+      expiresIn: '1h',
+      sameSite: "none",
+      secure: true
     });
     console.log("hello");
     res.cookie("accessToken", token, {
       httpOnly: true,
       expiresIn: new Date(Date.now() + 1000 * 60),
-      sameSite: "lax",
+      sameSite: "none",
       secure: true
     });
 
