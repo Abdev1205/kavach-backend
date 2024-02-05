@@ -30,6 +30,7 @@ const login = async (req, res, next) => {
     const token = await jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
       expiresIn: '1h'
     });
+    console.log("hello");
     res.cookie("accessToken", token, {
       httpOnly: true,
       expiresIn: new Date(Date.now() + 1000 * 60),
