@@ -32,13 +32,13 @@ const verifyToken = async (req, res, next) => {
     req.id = decoded.id;
 
     // Set the accessToken cookie as httpOnly
-    res.cookie("accessToken", token, 
-    { 
-      httpOnly: true,
-      maxAge: 15 * 60 * 1000,
-      sameSite: "none",
-      secure: true 
-    });
+    // res.cookie("accessToken", token, 
+    // {
+    //   httpOnly: true,
+    //   maxAge: 15 * 60 * 1000,
+    //   sameSite: "none",
+    //   secure: true 
+    // });
 
     next();
   });
