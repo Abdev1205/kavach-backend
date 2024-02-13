@@ -33,8 +33,6 @@ const login = async (req, res, next) => {
     console.log("hello");
     res.cookie("accessToken", token, {
       httpOnly: true,
-      sameSite: "none",
-      secure: true,
       expiresIn: new Date(Date.now() + 1000 * 60),
     });
 
