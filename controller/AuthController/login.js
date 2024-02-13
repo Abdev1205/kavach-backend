@@ -27,15 +27,14 @@ const login = async (req, res, next) => {
       // Include any other necessary information in the payload
     };
     console.log("this is token payload ", tokenPayload)
-    const token = await jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
-      httpOnly: true,
-      expiresIn: '1h',
-    });
+    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY);
     console.log("hello");
     console.log("Adding New Stuff 1 !!!!!!!! " + token);
     res.cookie("accessToken", token, {
       httpOnly: true,
-      expiresIn: new Date(Date.now() + 1000 * 60),
+      sameSite: "none",
+      secure: true,
+      maxAge: new Date(Date.now() + 1000 * 60),
     });
 
     var redirectParam = req.query.redirect;
