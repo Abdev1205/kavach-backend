@@ -31,6 +31,7 @@ const login = async (req, res, next) => {
       expiresIn: '1h',
     });
     console.log("hello");
+    console.log("Adding New Stuff !!!!!!!! " + token);
     res.cookie("accessToken", token, {
       httpOnly: true,
       expiresIn: new Date(Date.now() + 1000 * 60),
