@@ -24,8 +24,8 @@ const verifyToken = async (req, res, next) => {
       return res.status(400).json({ message: "Invalid Token" });
     }
 
-    console.log("user id from jwt decode", decoded.id);
-    req.id = decoded.id;
+    console.log("user id from jwt decode", decoded._id, decoded);
+    req.id = decoded._id;
     next();
   });
 };
