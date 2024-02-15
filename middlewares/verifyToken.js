@@ -9,19 +9,19 @@ const verifyToken = async (req, res, next) => {
   const cookies = req.headers.cookie;
   var token = req.query.token;
   // console.log("mybody in verify token", mybody)
-  console.log("this is cookies value", cookies);
-  const tokenCookie = cookies?.split(";").find(cookie => cookie.trim().startsWith("accessToken="));
+  // console.log("this is cookies value", cookies);
+  // const tokenCookie = cookies?.split(";").find(cookie => cookie.trim().startsWith("accessToken="));
   // if (!tokenCookie) {
   //   return res.status(404).json({ message: "No accessToken cookie found" });
   // }
-  const token2 = tokenCookie?.split("=")[1];
-  console.log("this is token value", token, token2);
-  if (token2.length == 0 || token2 == undefined) {
-    token = token;
-  }
-  else {
-    token = token2;
-  }
+  // const token2 = tokenCookie?.split("=")[1];
+  console.log("this is token value", token);
+  // if (token2.length == 0 || token2 == undefined) {
+  //   token = token;
+  // }
+  // else {
+  //   token = token2;
+  // }
   if (!token) {
     return res.status(404).json({ message: "No token found in the accessToken cookie" });
   }
