@@ -12,8 +12,7 @@ app.use(bodyParser.json({ limit: '35mb' }));
 // adding middleware
 app.use(
   cors({
-    // origin: ["https://kavach-frontend-zeta.vercel.app"],
-    origin: "*",
+    origin: ["http://localhost:3000", process.env.CLIENT_BASE_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -23,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', routes);
 
-console.log(process.env.FRONTEND_URL)
+console.log(process.env.CLIENT_BASE_URL)
 
 config({
   path: ".env"

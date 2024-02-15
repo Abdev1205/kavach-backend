@@ -14,17 +14,16 @@ const googleAuth = (req, res, next) => {
     }
     console.log("user dat ain gauth", user);
 
-    // const tokenPayload = {
-    //   id: user.user?._id || user?.existingUserWithEmail?._id,
-    // };
-    // console.log("this is token payload ", tokenPayload)
+    const tokenPayload = {
+      _id: user.user?._id || user?.existingUserWithEmail?._id,
+    };
+    console.log("this is token payload ", tokenPayload)
 
-    // const token = jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
-    //   expiresIn: '1h'
-    // });
-    const token = jwt.sign({ _id: user.user?._id || user?.existingUserWithEmail?._id }, process.env.JWT_SECRET_KEY)
+    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET_KEY, {
+      expiresIn: '1h'
+    });
     res.cookie("accessToken", token, {
-      httpOnly: true,
+      httpOnly: false,
       sameSite: "none",
       secure: true,
       maxAge: 15 * 60 * 1000,
