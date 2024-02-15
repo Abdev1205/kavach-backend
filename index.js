@@ -12,7 +12,8 @@ app.use(bodyParser.json({ limit: '35mb' }));
 // adding middleware
 app.use(
   cors({
-    origin: ["https://kavach-frontend-zeta.vercel.app"],
+    // origin: ["https://kavach-frontend-zeta.vercel.app"],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
